@@ -7,7 +7,7 @@
 // Run it and save the output as a comment at the end of the program
 // Use a similar design for Homework 1C
 
-// Reviewd by:
+// Reviewed by: Jonathan Lagos
 
 #include <iostream>
 #include <string>
@@ -150,5 +150,15 @@ void displayProd(const string title[], const string desc[],
 }
 
 /****************** OUTPUT
- 
+Enter the item's product number: 918
+Title: Seven Lessons of Quality
+Description: Audio CD
+Price: $21.95
+Would you like to look up another product? (y/n) y
+Enter the item's product number: 921
+Title: Leadership for the Future
+Description: Book
+Price: $14.95
+Would you like to look up another product? (y/n) n
+
  */
