@@ -7,7 +7,7 @@
 
 
  Changed by: Jonathan Lagos
- IDE: Codeblocks
+ IDE: None (Linux, VScode as editor)
 
  */
 #include <iostream>
@@ -94,5 +94,26 @@ int binarySearch(const int array[], int numElems, int value)
 }
 
 /************** OUTPUT
+5 5 8 8 8 8 8 9 9 10 
+8 found from index 2 to 6
+6 NOT found!
+7 NOT found!
+5 found from index 0 to 1
+8 found from index 2 to 6
+5 found from index 0 to 1
+6 NOT found!
+7 NOT found!
+9 found from index 7 to 8
+6 NOT found!
+7 NOT found!
+7 NOT found!
+5 found from index 0 to 1
+9 found from index 7 to 8
+8 found from index 2 to 6
+6 NOT found!
+5 found from index 0 to 1
+6 NOT found!
+7 NOT found!
+6 NOT found!
 
  */

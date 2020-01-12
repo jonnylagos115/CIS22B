@@ -6,7 +6,7 @@
  of the source file.
 
  Changed by: Jonathan Lagos
- IDE: Codeblocks
+ IDE: None (Linux, VScode as editor)
 
  */
 
@@ -14,7 +14,7 @@
 
 using namespace std;
 
-void insertionSort(int ary[], int size);
+void insertionSort(double ary[], int size);
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
     }
     cout << endl;
 
-    void insertionSort(int array[], int size);
+    insertionSort(list, size);
 
     for (int i = 0; i < size; i++)
     {
@@ -42,9 +42,9 @@ int main()
  This function sorts an array in descending order
  using the Insertion Sort algorithm
  */
-void insertionSort(int ary[], int size)
+void insertionSort(double ary[], int size)
 {
-    int temp;
+    double temp;
     int curr;
     int walk;
 
@@ -55,7 +55,7 @@ void insertionSort(int ary[], int size)
 
         // shift elements in the sorted part of the list to make room
         walk = curr - 1;
-        while( walk >= 0 && temp < ary[walk] )
+        while( walk >= 0 && temp > ary[walk] )
         {
             ary[walk + 1] = ary[walk];
             walk--;
@@ -68,5 +68,6 @@ void insertionSort(int ary[], int size)
 
 
 /****************** OUTPUT
-
+50.1 30.2 80.3 10.5 30.2 40.9 90.8 30.2 80.8 30.5 
+90.8 80.8 80.3 50.1 40.9 30.5 30.2 30.2 30.2 10.5 
  */
