@@ -61,12 +61,20 @@ int main()
     return 0;
 }
 
+/***************************************************
+ Welcome message to program
+ */
 void printIntro(void)
 {
 	cout << "Welina!\nWelcome!\n"
 	<< "This program translates English Words to Hawaiian.\n\n";
 }
 
+/***************************************************
+ This function reads through an input file that should contain a list of English words
+ with its translated Hawaiian word on the same line seperated by a space character, storing 
+ both words to their respective string arrays (parallel arrays)
+ */
 void parseDictionary(string englishWords[], string hawaiianWords[], int &size, const int MAX_SIZE)
 {
 	ifstream inputFile;
