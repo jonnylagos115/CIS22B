@@ -124,6 +124,7 @@ int binarySearch(const string englishWords[], int numElems, string target)
 /***************************************************
  This function sorts an array in ascending order
  using the Insertion Sort algorithm
+ I got this function from HW0, with minor changes
  */
 void insertionSort(string savedSearches[], int countedSearches[], int size)
 {
