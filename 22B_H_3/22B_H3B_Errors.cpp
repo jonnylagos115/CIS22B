@@ -31,7 +31,7 @@ int main()
     double  ary[100] = { 2.1, 3.5, 8.7, 1.9, 5.6 };
     double  *list; // will point to a replica of ary
 
-    createCopy ( ary, ary + size - 1, list );
+    list = createCopy ( ary, ary + size - 1);
     //ary + size - 1 is the address of the last element in ary
     printList ( ary, ary + size - 1 );    // print the original array
     printList ( list, list + size - 1 );  // print its copy
@@ -68,10 +68,11 @@ void printList ( double *pFirst, double *pLast )
  pLast - pointer to the last element
  POST: list copied to newList
  ****************************************************************/
-void createCopy ( double *pFirst, double *pLast, double *&newList )
+double *createCopy( double *pFirst, double *pLast)
 {
     double *pwSource;
     double *pwDest;
+    double *newList;
 
     newList = new double[pLast - pFirst + 1]; // allocate memory for the new array
     //cout << "DEBUG size = " << pLast - pFirst << endl;
@@ -80,12 +81,11 @@ void createCopy ( double *pFirst, double *pLast, double *&newList )
         *pwDest = *pwSource;
         //cout << "DEBUG " << *pwDest << endl; // DEBUG
     }
-
-    return;
+    return newList;
 }
 /***************************************************************
   Save the OUTPUT below
-
-
+2.10 3.50 8.70 1.90 5.60 
+2.10 3.50 8.70 1.90 5.60
 */
 

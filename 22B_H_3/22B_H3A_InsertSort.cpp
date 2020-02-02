@@ -15,8 +15,8 @@
 using namespace std;
 
 // Function prototypes
-void insertionSort(int *, int *);
-void showArray(int *, int *);
+void insertionSort(double *, double *);
+void showArray(double *, double *);
 
 int main()
 {
@@ -44,13 +44,13 @@ int main()
  This function performs an ascending order insertion sort on
  array. size is the number of elements in the array.
  ****************************************************************/
-void insertionSort(double *pList, int *pLast)
+void insertionSort(double *pList, double *pLast)
 {
-    for (int *curr = pList + 1; curr <= pLast; curr++)
+    for (double *curr = pList + 1; curr <= pLast; curr++)
     {
-        int hold = *curr;                       // copy current element to hold
-        int *back = curr - 1;
-        while (back >= pList && hold < *back)   // search where to insert the current element
+        double hold = *curr;                       // copy current element to hold
+        double *back = curr - 1;
+        while (back >= pList && hold > *back)   // search where to insert the current element
         {
             *(back + 1) = *back;                // shift to the right
             back--;
@@ -64,9 +64,9 @@ void insertionSort(double *pList, int *pLast)
  This function displays the contents of array. size is the
  number of elements.
  ****************************************************************/
-void showArray(int *pList, int *pLast)
+void showArray(double *pList, double *pLast)
 {
-    for (int *ptr = pList; ptr <= pLast; ptr++)
+    for (double *ptr = pList; ptr <= pLast; ptr++)
         cout << *ptr << " ";
     cout << endl;
 }
