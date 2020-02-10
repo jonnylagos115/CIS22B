@@ -1,12 +1,12 @@
 /**
  CIS 22B: Homework 4C
  Strings and Structures
- 
+
  Project: Star Search
- 
- NAME:
- IDE:
- 
+
+ NAME: Jonathan Lagos
+ IDE: None (Linux, with VSCode
+
  */
 
 #include <iostream>
@@ -15,14 +15,14 @@ using namespace std;
 
 
 /* Define a struct named Performer with the following fields:
- 
+
  1. name (string)
  2. scores (an array of 5 doubles)
  3. final (double)
- 
+
  */
 
-// Function prototypes
+// Function prototypes, feel free to change the data return type
 void printWelcome(void);
 void readPerfData();    // <== add parameters, change void if needed
 void calculateScore();  // <== add parameters, change void if needed
@@ -35,7 +35,7 @@ int main( void )
 {
     string inFileName[] = {"performers.txt", "contestants.txt", "test.txt", "testempty.txt", ""};
     int choice = 1;  // to stop the program to allow the user to see the results one file at a time
-    
+
     for (string *ptr = inFileName; choice == 1 && *ptr != ""; ptr++)    // test loop: takes the names of 4 input files from an array
     {
         printWelcome();
@@ -45,16 +45,16 @@ int main( void )
         writeFile();        // <== change call to match with definition
         displayResults();   // <== change call to match with definition
         printEnd();
-        
-        
+
+
         cout << "Please enter 1 to continue 0 to stop" << endl;
         cin >> choice;
     }
-    
+
     return 0;
 }   // main
 /**********************
- 
+
  */
 void printWelcome(void)
 {
@@ -62,7 +62,7 @@ void printWelcome(void)
 }
 
 /**********************
- 
+
  */
 void readPerfData()    // <== add parameters, change void if needed
 {
@@ -70,7 +70,7 @@ void readPerfData()    // <== add parameters, change void if needed
 }
 
 /**********************
- 
+
  */
 void calculateScore()  // <== add parameters, change void if needed
 {
@@ -78,7 +78,7 @@ void calculateScore()  // <== add parameters, change void if needed
 }
 
 /**********************
- 
+
  */
 void insertionSort()   // <== add parameters, change void if needed
 {
@@ -86,7 +86,7 @@ void insertionSort()   // <== add parameters, change void if needed
 }
 
 /**********************
- 
+
  */
 void writeFile()       // <== add parameters, change void if needed
 {
@@ -94,7 +94,7 @@ void writeFile()       // <== add parameters, change void if needed
 }
 
 /**********************
- 
+
  */
 void displayResults()  // <== add parameters, change void if needed
 {
@@ -102,7 +102,7 @@ void displayResults()  // <== add parameters, change void if needed
 }
 
 /**********************
- 
+
  */
 void printEnd(void)
 {
@@ -110,6 +110,6 @@ void printEnd(void)
 }
 
 /** Save the output below
- 
- 
+
+
  */
