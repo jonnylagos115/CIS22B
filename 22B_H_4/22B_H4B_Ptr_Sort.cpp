@@ -6,7 +6,7 @@
    It has some errors. Fix the errors and run the program.
    Save the output as a comment at the end of the program.
 
-   NAME:
+   NAME: Jonathan Lagos
 */
 
 /**
@@ -93,7 +93,7 @@ void selectionSort( const char *list[],  int size ) //Make corrections,
     {
         small = curr;
 		for( walk = curr + 1; walk < size; walk++ )
-		    if( list[walk] < list[small] ) //use strcmp()
+		    if(strcmp(list[walk], list[small]) < 0) //use strcmp()
 			    small = walk;
 
         hold = list[small];
@@ -104,8 +104,7 @@ void selectionSort( const char *list[],  int size ) //Make corrections,
 }
 /***************************************************************
  Save the OUTPUT below
-
-
+Andrew Anne Diane John Linda Mary Paul Peter
  */
 
 

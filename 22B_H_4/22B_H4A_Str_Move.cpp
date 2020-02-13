@@ -35,6 +35,7 @@ int main( void )
         cout << " After: [" << sList[i] << "]\n";
         if (!change)
             cout << "\t\t The string is either empty or it has only one word!";
+        cout << endl;
     }
     return 0;
 }
@@ -44,12 +45,42 @@ bool moveFront( char s[] ) //No for-loops, only call C-string functions
 {
     bool success = false;
     char temp[100];
+    int i = strlen(s) - 1;
+    int len;
 
-
+    if (strchr(s, ' ') != NULL) //checks if string is either empty or contains only one word
+    {
+        strcpy(temp, strrchr(s, ' ') + 1); //Copy last word into string temp
+        len = strlen(temp); //Finds the length of last word, then uses this to access last char
+        temp[len] = ' '; //Replaces null byte with a space char
+        temp[len + 1] = '\0'; //Puts an null byte ahead of the space char
+        while (s[i] != ' ') //locates pos of the first space char
+            i--;
+        s[i] = '\0'; //Inserts the null byte in that position
+        strcat(temp, s); //Concatenates string s at the end of string temp
+        strcpy(s, temp); //Copies string temp to string s so the changes are made once returning to main()
+        success = true;
+    }
+    else
+        success = false;
     return success;
 }
 /***************************************************************
  Save the OUTPUT below
+Before: [One Two Three Four Five Zero]
+ After: [Zero One Two Three Four Five]
 
+Before: []
+ After: []
+                 The string is either empty or it has only one word!
+Before: [Three Two One Four]
+ After: [Four Three Two One]
+
+Before: [Second First]
+ After: [First Second]
+
+Before: [Done!]
+ After: [Done!]
+                 The string is either empty or it has only one word!
 
  */
