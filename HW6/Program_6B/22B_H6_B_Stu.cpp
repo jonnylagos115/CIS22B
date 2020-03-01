@@ -12,8 +12,8 @@
  
  Run the program once and save the output as a comment at the end of this source file.
  
- Modified by:
- IDE: 
+ Modified by: Jonathan Lagos
+ IDE: None (Linux/VS Code)
  
  */
 #include <iostream>

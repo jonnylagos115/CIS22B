@@ -1,15 +1,16 @@
 /*
  CIS 22B: Homework 6C
  
- Build and procees a sorted linked list of College objects.
+ Build and process a sorted linked list of College objects.
  The list is sorted in ascending order by the college code.
  Assume that the college code is unique.
  
- Written by:
- IDE: 
+ Written by: Jonathan Lagos
+ IDE: None (Linux/VS Code)
  
  */
 #include <iostream>
+#include <fstream>
 #include "LinkedList.hpp"
 using namespace std;
 
@@ -39,6 +40,19 @@ int main()
  *****************************************************************************/
 void buildList(string filename, LinkedList &list)
 {
+    ifstream fin;
+
+    fin.open(filename.c_str());
+    if (fin.fail())
+    {
+        cerr << "Input file cannot be opened at this time" << endl;
+        exit(EXIT_FAILURE);
+    }
+    /*for (int i = 0; !fin.eof(); i++)
+    {
+        fin >> list.col
+    }*/
+    fin.close();
     
 }
 

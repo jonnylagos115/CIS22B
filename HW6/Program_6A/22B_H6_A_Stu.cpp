@@ -58,7 +58,7 @@ int main()
     //******************************
     cout << "TESTING DISPLAY\n\n";
     list.displayList();
-    list.displayList(3.0);  //<====================================
+    list.displayList(3.0);
     
     //******************************
     cout << "TESTING DELETE\n\n";
