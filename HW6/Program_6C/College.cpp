@@ -10,10 +10,13 @@ using namespace std;
 void College::hDdisplay()
 {
     cout << "====== ==== ============================= =========" << endl;
-    cout << " Code";
+    cout << " Code" << setw(10) << "Rank" << setw(20) << "Name" << setw(20) << "Cost" << setw(10) << endl;
+    cout << "";
 }
 
 void College::vDisplay()
 {
-
+    cout << setw(20) << "Rank: " << getRank() << endl;
+    cout << setw(20) << "School Name: " << getName() << endl;
+    cout << "Cost of Attendance: $" << getCost() << endl;
 }

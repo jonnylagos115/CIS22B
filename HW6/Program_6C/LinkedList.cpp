@@ -6,6 +6,14 @@
 #include "LinkedList.hpp"
 using namespace std;
 
+//**************************************************
+// Constructor
+// This function allocates and initializes a sentinel node
+//      A sentinel (or dummy) node is an extra node added before the first data record.
+//      This convention simplifies and accelerates some list-manipulation algorithms,
+//      by making sure that all links can be safely dereferenced and that every list
+//      (even one that contains no data elements) always has a "first" node.
+//**************************************************
 LinkedList::LinkedList()
 {
     head = new ListNode;
@@ -30,14 +38,12 @@ void LinkedList::insertNode(College dataIn)
     // Initialize pointers
     pPre = head;
     pCur = head->next;
-    
     // Find location: skip all nodes whose college code is less than pCur's college code
-    while (pCur != NULL && pCur->col.getCode() > pPre->col.getCode())
+    while (pCur != NULL && pCur->col.getCode() < newNode->col.getCode())
     {
         pPre = pCur;
         pCur = pCur->next;
     }
-    
     // Insert the new node between pPre and pCur
     pPre->next = newNode;
     newNode->next = pCur;
@@ -51,7 +57,7 @@ void LinkedList::insertNode(College dataIn)
 // with num as its value. The node, if found, is
 // deleted from the list and from memory.
 //**************************************************
-bool LinkedList::deleteNode(string target)
+bool LinkedList::deleteNode(std::string target)
 {
     ListNode *pCur;       // To traverse the list
     ListNode *pPre;        // To point to the previous node
@@ -60,9 +66,7 @@ bool LinkedList::deleteNode(string target)
     // Initialize pointers
     pPre = head;
     pCur = head->next;
-    
-    // Find node containing the target: Skip all nodes whose gpa is less than the target
-    while (pCur != NULL && pCur->col.getCode() == target)
+    while (pCur != NULL && pCur->col.getCode() != target)
     {
         pPre = pCur;
         pCur = pCur->next;
@@ -78,6 +82,51 @@ bool LinkedList::deleteNode(string target)
     }
     return deleted;
     
+}
+
+//**************************************************
+// displayList shows the value
+// stored in each node of the linked list
+// pointed to by head.
+//**************************************************
+void LinkedList::displayList() const
+{
+    ListNode *pCur;  // To move through the list
+    
+    // Position pCur: skip the head of the list.
+    pCur = head->next;
+    
+    // While pCur points to a node, traverse the list.
+    while (pCur)
+    {
+        // Display the value in this node.
+        cout << pCur->col.getRank() << " " << pCur->col.getCode() << " "
+        << pCur->col.getName() << " " << pCur->col.getCost() << endl;
+        
+        // Move to the next node.
+        pCur = pCur->next;
+    }
+    cout << endl;
+}
+
+//***********************f***************************
+// searchList traverses through the linked list
+// attempting locate node by it's college code
+//**************************************************
+bool LinkedList::searchList(College &col, std::string target) const
+{
+    ListNode *pCur; //To move through the list
+    bool ret = false;
+
+    pCur = head->next;
+    while (pCur && pCur->col.getCode() != target)
+        pCur = pCur->next;
+    if (pCur)
+    {
+        col = pCur->col;
+        ret = true;
+    }
+    return (ret);
 }
 
 //**************************************************
@@ -105,6 +154,6 @@ LinkedList::~LinkedList()
         // Position pCur at the next node.
         pCur = pNext;
     }
-    cout << "DEBUG - Destructor: Now deleting the sentinel node gpa = " << head->col.getCode() << endl;
+    cout << "DEBUG - Destructor: Now deleting the sentinel node code = " << head->col.getCode() << endl;
     delete head; // delete the sentinel node
 }

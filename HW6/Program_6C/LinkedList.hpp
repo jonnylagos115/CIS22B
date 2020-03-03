@@ -24,10 +24,9 @@ public:
     ~LinkedList(); //Destructor
 
     int getCount() const {return count;}
-    int getCount() const {return count;}
     void insertNode(College);
-    bool deleteNode(string);
+    bool searchList(College&,std::string) const;
+    bool deleteNode(std::string);
     void displayList() const;
-    void searchList() const;
 };
 #endif

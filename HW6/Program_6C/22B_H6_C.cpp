@@ -24,12 +24,12 @@ int main()
     LinkedList list;
 
     buildList(inputFileName, list);
-    // call the displayList() function
+    list.displayList();
     searchManager(list);
-    // show the number of elements in the list
+    cout << "Number of nodes: " << list.getCount();
     deleteManager(list);
-    // call the displayList() function again
-    // show the number of elements in the list
+    list.displayList();
+    cout << "Number of nodes: " << list.getCount();
     
     return 0;
 }
@@ -41,6 +41,9 @@ int main()
 void buildList(string filename, LinkedList &list)
 {
     ifstream fin;
+    College col;
+    int rank, cost;
+    string code, name;
 
     fin.open(filename.c_str());
     if (fin.fail())
@@ -48,10 +51,19 @@ void buildList(string filename, LinkedList &list)
         cerr << "Input file cannot be opened at this time" << endl;
         exit(EXIT_FAILURE);
     }
-    /*for (int i = 0; !fin.eof(); i++)
+    for (int i = 0; !fin.eof(); i++)
     {
-        fin >> list.col
-    }*/
+        fin >> rank;
+        fin >> code;
+        fin.ignore(); //Skips over space character before college name
+        getline(fin, name, ';');
+        fin >> cost;
+        col.setRank(rank);
+        col.setCode(code);
+        col.setName(name);
+        col.setCost(cost);
+        list.insertNode(col);
+    }
     fin.close();
     
 }
@@ -75,8 +87,16 @@ void deleteManager(LinkedList &list)
         
         if(targetName != "Q")
         {
-            // call delete
-            // . . .
+            if (list.deleteNode(targetName))
+            {
+                cout << "College with code \"" << targetName
+                << "\" has been deleted from this list." << endl;
+            }
+            else
+            {
+                cout << "College with code \"" << targetName
+                << "\" has not been found in this list." << endl;
+            }
         }
     }
     cout << "___________________END DELETE SECTION_____\n";
@@ -89,7 +109,8 @@ void deleteManager(LinkedList &list)
 void searchManager(LinkedList &list)
 {
     string targetName = "";
-    
+    College col;
+
     cout << "\n Search\n";
     cout <<   "=======\n";
     
@@ -100,11 +121,14 @@ void searchManager(LinkedList &list)
         
         if(targetName != "Q")
         {
-            // call search
-            // . . .
-         }
-        
-        
+            if (list.searchList(col, targetName))
+                col.vDisplay();
+            else
+            {
+                cout << "College with code \"" << targetName 
+                << "\" has not been found in this list." << endl;
+            }
+        }
     }
     cout << "___________________END SEARCH SECTION _____\n";
 }
