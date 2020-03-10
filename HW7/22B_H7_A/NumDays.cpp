@@ -1,22 +1,35 @@
 // Implementation file for the NumDays class
 #include "NumDays.h"
 
+void NumDays::convertNumDays()
+{
+    days = hours / 8.;
+}
+
 //**********************************************
 // Overloaded binary + operator.               *
 //**********************************************
 
 NumDays NumDays::operator+(const NumDays &right)
 {
+    NumDays temp;
 
+    temp.hours = hours + right.hours;
+    temp.convertNumDays();
+    return temp;
 }
 
 //**********************************************
 // Overloaded binary - operator.               *
 //**********************************************
 
-NumDays NumDays::operator-(const NumDays&)
+NumDays NumDays::operator-(const NumDays &right)
 {
+    NumDays temp;
 
+    temp.hours = hours - right.hours;
+    temp.convertNumDays();
+    return temp;
 }
 
 //*************************************************************
@@ -26,7 +39,9 @@ NumDays NumDays::operator-(const NumDays&)
 
 NumDays NumDays::operator++()
 {
-
+    ++hours;
+    convertNumDays();
+    return *this;
 }
 
 //***************************************************************
@@ -37,7 +52,11 @@ NumDays NumDays::operator++()
 
 NumDays NumDays::operator++(int)
 {
+    NumDays temp(hours);
 
+    hours++;
+    convertNumDays();
+    return temp;
 }
 
 
@@ -49,7 +68,9 @@ NumDays NumDays::operator++(int)
 
 NumDays NumDays::operator--()
 {
-
+    --hours;
+    convertNumDays();
+    return *this;
 }
 
 //***************************************************************
@@ -60,5 +81,9 @@ NumDays NumDays::operator--()
 
 NumDays NumDays::operator--(int)
 {
+    NumDays temp(hours);
 
+    hours--;
+    convertNumDays();
+    return temp;
 }

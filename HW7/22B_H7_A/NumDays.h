@@ -10,15 +10,15 @@ class NumDays
     private:
         double days;
         int hours;
+        void convertNumDays();
     public:
-        NumDays(int h) {hours = h; days = 0;}
+        NumDays() {hours = 0; days = 0;} // Default constructor
+
+        NumDays(int h) {hours = h; convertNumDays();} // Overloaded constructor
         
         // Mutator functions
         void setHours(int h)
-            { hours = h;}
-        
-        void setDays(double d)
-            { days = d;}
+            { hours = h; convertNumDays();}
 
         //Accessor functions
         double getDays() const
@@ -26,7 +26,7 @@ class NumDays
 
         int getHours() const
             {return hours;}
-        
+
         //Overloaded operator functions
         NumDays operator+(const NumDays&); // Overloaded +
         NumDays operator-(const NumDays&); // Overloaded -
